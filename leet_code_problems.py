@@ -7,6 +7,9 @@ Original file is located at
     https://colab.research.google.com/drive/18k0XQuuVC0R67JvaiDvO69jzlv7ChlXQ
 """
 
+
+
+
 # 217. Contains Duplicate
 # Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
@@ -26,6 +29,9 @@ class Duplicate_Nums:
       # otherwise we will return false since there are no repeating numbers
       else:
           return False
+
+    
+   
 
 # 1. Two Sum
 # Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -47,6 +53,9 @@ class two_sum:
         else:
             return [diction[target-num], i]
 
+        
+        
+        
 # 242. Valid Anagram
 # Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 # An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
@@ -72,6 +81,9 @@ class Anagram:
       # otherwise we will return true since the letters in both strings match eachother perfectly
       return True
 
+    
+    
+    
 # 566. Reshape the Matrix
 # In MATLAB, there is a handy function called reshape which can reshape an m x n matrix into a new one with a different size r x c keeping its original data.
 # You are given an m x n matrix mat and two integers r and c representing the number of rows and the number of columns of the wanted reshaped matrix.
@@ -120,6 +132,9 @@ class matrix_reshape:
     # if the parameters given aren't possible to reshape the matrix, then we will output the original matrix just as the problem tell us to do
     else:
       return mat
+
+
+
 
 # 387. First Unique Character in a String
 # Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
