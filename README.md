@@ -4,3 +4,7 @@ Programmed a string matching algorithm that takes a string and pattern as input.
 
 # Needleman-Wunsch Algorithm:
 Algorithm I developed which recreates the Needleman-Wunsch Global Sequence Alignment Algorithm. This algorithm also uses the BLOSUM50 matrix for scoring and assumes a gap penalty of -8. Time Complexity: O(m*n)
+
+
+# LeetCode Problems:
+This file contains Python solutions that I developed in order to solve various LeetCode problems. Each solution has the problem number at the top with the description of the problem as well. I also included in-depth comments to make it easy to follow my logic behind solving the problem.
