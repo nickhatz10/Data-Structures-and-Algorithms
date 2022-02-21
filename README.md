@@ -11,4 +11,4 @@ This file contains Python solutions that I developed in order to solve various L
 
 
 # Wordle Helper:
-My friend introduced me to the daily Wordle game (made by The New York Times). I soon began playing it everyday since it is a fun game that tests my vocabularly and problem solving skills. I then decided to write a simple program to see if I could gain the edge in solving the Wordle using Python. This was a side project that I programmed for fun.
+My friend introduced me to the daily Wordle game (made by The New York Times). I soon began playing it everyday since it is a fun game that tests my vocabularly and problem solving skills. I then decided to write a program to see if I could gain the edge in solving the Wordle using Python. This was a side project that I programmed for fun.
