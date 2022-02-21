@@ -8,3 +8,7 @@ Algorithm I developed which recreates the Needleman-Wunsch Global Sequence Align
 
 # LeetCode Problems:
 This file contains Python solutions that I developed in order to solve various LeetCode problems. Each solution has the problem number at the top with the description of the problem as well. I also included in-depth comments to make it easy to follow my logic behind solving the problem.
+
+
+# Wordle Helper:
+My friend introduced me to the daily Wordle game (made by The New York Times). I soon began playing it everyday since it is a fun game that tests my vocabularly and problem solving skills. I then decided to write a simple program to see if I could gain the edge in solving the Wordle using Python. This was a side project that I programmed for fun.
