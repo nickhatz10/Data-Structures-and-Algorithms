@@ -7,9 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/18k0XQuuVC0R67JvaiDvO69jzlv7ChlXQ
 """
 
-
-
-
 # 217. Contains Duplicate
 # Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
@@ -20,7 +17,7 @@ class Duplicate_Nums:
       count_dict = Counter(nums)
       # list comprehension to iterate through the values in the dictionary
       # if a value is greater than or equal to 2, this means that its key is repeated in the nums list
-      # so if it is repeated, we will put that value in a list and by the time the iteration is done, 
+      # so if it is repeated, we will put that value in a list and by the time the iteration is done,
       # the number of elements in the dups list will represent the number of repeat numbers in the nums list
       dups = [val for val in count_dict.values() if val >= 2]
       # if the dups list is not empty, then we will return True since there are repeating numbers
@@ -29,9 +26,6 @@ class Duplicate_Nums:
       # otherwise we will return false since there are no repeating numbers
       else:
           return False
-
-    
-   
 
 # 1. Two Sum
 # Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -53,9 +47,6 @@ class two_sum:
         else:
             return [diction[target-num], i]
 
-        
-        
-        
 # 242. Valid Anagram
 # Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 # An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
@@ -81,9 +72,6 @@ class Anagram:
       # otherwise we will return true since the letters in both strings match eachother perfectly
       return True
 
-    
-    
-    
 # 566. Reshape the Matrix
 # In MATLAB, there is a handy function called reshape which can reshape an m x n matrix into a new one with a different size r x c keeping its original data.
 # You are given an m x n matrix mat and two integers r and c representing the number of rows and the number of columns of the wanted reshaped matrix.
@@ -102,7 +90,7 @@ class matrix_reshape:
         return [[item for sublist in mat for item in sublist]]
 
       # if c is equal to 1, then we know that the matrix will only have 1 column, so each number in the original matrix will be its own row
-      # we can again use list comprehension to do this by simply taking each item in the original matrix and putting it into its own list and then putting 
+      # we can again use list comprehension to do this by simply taking each item in the original matrix and putting it into its own list and then putting
       # these sublists into one big list
       elif c == 1:
         return [[item] for sublist in mat for item in sublist]
@@ -128,13 +116,10 @@ class matrix_reshape:
             start+=c
         # once we are done looping, our final list will be the new matrix that fits the dimensions of r*c
         return final_list
-            
+
     # if the parameters given aren't possible to reshape the matrix, then we will output the original matrix just as the problem tell us to do
     else:
       return mat
-
-
-
 
 # 387. First Unique Character in a String
 # Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
@@ -152,3 +137,98 @@ class first_uniq_char:
             return i
     # if we get through the for loop without returning the index i, then we know there is no unique characters so we will return -1
     return -1
+
+# 122. Best Time to Buy and Sell Stock II
+# You are given an integer array prices where prices[i] is the price of a given stock on the ith day.
+# On each day, you may decide to buy and/or sell the stock. You can only hold at most one share of the stock at any time.
+# However, you can buy it then immediately sell it on the same day. Find and return the maximum profit you can achieve.
+
+# for this problem, we must recognize that the sum of the profit between each element in the array
+# is always greater than or equal to the profit of the greatest peak in the array
+class buy_sell_stock:
+    def maxProfit(self, prices):
+        # create a variable for the max profit and set it to 0 to start
+        max_profit = 0
+        # loop through the integer array named prices, start from index 1 in the array
+        for i in range(1, len(prices)):
+            # if the current value is greater than the previous value in the array
+            # then we will add the difference between the current value and the previous value to the max_profit variable
+            if prices[i] > prices[i-1]:
+                max_profit += prices[i] - prices[i-1]
+        # once we loop through to the end of the list, we will return the max_profit
+        return max_profit
+
+# 125. Valid Palindrome
+# A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters,
+# it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+# Given a string s, return true if it is a palindrome, or false otherwise.
+
+class Palindrome:
+    def isPalindrome(self, s):
+        # here we import the regular expression (re) library which provides functions and methods
+        # to perform various operations such as pattern matching, searching, and replacing text based on these patterns.
+        import re
+        # we remove any non-alphanumeric characters using the substitution function from re
+        # we also use the lower() function to turn all letters lowercase
+        letters_only = re.sub(r"[^a-zA-Z0-9]+", '', s).lower()
+
+        # here we are using an if statement to check if the new string is the same as itself backwards
+        # if it is the same, and thus a palindrome, we return True
+        # if it is not the same, we return False
+        if letters_only == letters_only[::-1]:
+            return True
+        else:
+            return False
+
+# 6. Zigzag Conversion
+# The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:
+# And then read line by line: "PAHNAPLSIIGYIR"
+# Write the code that will take a string and make this conversion given a number of rows:
+
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        # If there is only 1 row, then we can simply return the initial string
+        if numRows == 1:
+            return s
+
+        # Here we are creating a matrix of empty strings to fill with each letter
+        # from the string s to complete the zig-zag pattern
+        matrix = [""] * numRows
+
+        # we are initializing a variable called row which will begin at the first
+        # row in the matrix. Thus, our starting point is at index 0
+        row = 0
+
+        # create a for loop to loop through each character in the string
+        for char in s:
+
+            # if we reach the top of the matrix (row 0), then we must move down to avoid an
+            # out of bounds error. We will log this as a boolean value
+            if row == 0:
+                move_down = True
+
+            # if we reach the bottom of the matrix (last row), then we must move up to avoid an
+            # out of bounds error. We will log this as a boolean value and switch move_down to false
+            elif row == numRows - 1:
+                move_down = False
+
+            # We will add the current character in the loop to its
+            # corresponding row/position in the matrix
+            matrix[row] = matrix[row] + char
+
+            # if we need to move down in the matrix to avoid out of bounds, then we will
+            # increment the row in the matrix by 1 to move down. This will allow us to continuously move down
+            # since the only way we can move up is to get to the end of the matrix and face an out of bounds error
+            # causing move_down boolean value to switch to False
+            if move_down == True:
+                row = row + 1
+
+            # if we don't need to move down in the matrix yet, then we will
+            # decrease the row in the matrix by 1 to move up. This allows us to continuously move up until
+            # we get to the top of the matrix (row = 0), since only then will move_down be switched to True
+            else:
+                row = row - 1
+
+        # once we reach the end of the loop then our matrix will be complete and we can return
+        # the final matrix as a string
+        return "".join(matrix)
