@@ -9,7 +9,7 @@ Algorithm I developed which recreates the Needleman-Wunsch Global Sequence Align
 This file contains Python solutions that I developed in order to solve various LeetCode problems. Each solution has the problem number commented at the top. I also included in-depth comments to make it easy to follow my logic behind solving the problem. There is also Python code for a few common algorithms at the very end, such as DFS, BFS, and Binary Search.
 
 # LeetCode Problems:
-This file contains more Python solutions that I developed in order to solve various LeetCode problems. Each solution has the problem number at the top with the description of the problem as well. I also included in-depth comments to make it easy to follow my logic behind solving the problem.
+This file contains Python solutions that I developed in order to solve various LeetCode problems. Each solution has the problem number at the top with the description of the problem as well. I also included in-depth comments to make it easy to follow my logic behind solving the problem.
 
 
 # Wordle Helper:
