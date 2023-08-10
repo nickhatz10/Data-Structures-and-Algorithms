@@ -957,7 +957,8 @@ class Solution:
         # this means s1==s2. If they are not the same it will return False since s1!=s2
         return s1_hash == s2_hash
 
-# sort an array using merge sort
+# Sort An Array Using Merge Sort
+
 def merge_sort(arr):
     # when the array has length 1, we return that number
     if len(arr) <= 1:
@@ -1003,7 +1004,8 @@ def merge(left, right):
     result.extend(right[j:])
     return result
 
-# search for a target using binary search
+# Search For A Target Using Binary Search
+
 def binary_search(arr, target):
     # represents the pointer for the index of the start of the array
     low = 0
@@ -1029,7 +1031,8 @@ def binary_search(arr, target):
     # if the value isn't found in the list return -1
     return -1
 
-# dfs iteratively
+# DFS Iteratively
+
 def dfs(self, root):
         # if we have no root, we return nothing
         if root is None:
@@ -1060,6 +1063,7 @@ def dfs(self, root):
         return dfs
 
 # Breadth First Search
+
 def bfs(current):
             # create a visited set
             visited = set()
@@ -1088,7 +1092,8 @@ def bfs(current):
             # in breadth first search order
             return visited
 
-# Check if a string contains only unique characters
+# Check If A String Contains Only Unique Characters
+
 def unique_letters(input_string):
   # create a hash map for letters we have seen already
   seen_dict = {}
