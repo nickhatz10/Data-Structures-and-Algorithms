@@ -7,95 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1D0bJtLlTRmBfYf9zOU9e3yWTa5sRO0JA
 """
 
-# sort an array using merge sort
-
-def merge_sort(arr):
-    # when the array has length 1, we return that number
-    if len(arr) <= 1:
-        return arr
-    # finds the midpoint of the array
-    mid = len(arr) // 2
-    # left half of the array divided on the midpoint
-    left_half = arr[:mid]
-    # right half of the array divided on the midpoint
-    right_half = arr[mid:]
-    # continues to divide the arrays until we get it down to an array with length 1, which will return the array
-    # this uses recursion and will continue to happen before moving to the next line
-    left_half = merge_sort(left_half)
-    # same as above, uses recursion to divide the right half of the array until it gets to an array with length 1
-    right_half = merge_sort(right_half)
-    # once the recursion stops, we will use the merge function to merge the two arrays with length 1 together, then
-    # every other array after that will again be merged using the merge function until we get back to the starting
-    # point before the recursion started, which will be two sorted array (left and right) which will be merged
-    return merge(left_half, right_half)
-
-def merge(left, right):
-    # empty result array to store the merge between left and right
-    result = []
-    # i is the index for left array
-    i = 0
-    # j is the index for right array
-    j = 0
-    # as long as the index for both left and right don't exceed their length, we will stay in the while loop
-    while i < len(left) and j < len(right):
-        # if the left array value at index i is less than or equal to the right array value at index j, we will append
-        # the left value in the result array since its smaller. We will then move the i counter up by 1 to move to the next value
-        # in the left array
-        if left[i] <= right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    # this adds the rest of the elements from the left or right array to the end of the result
-    # the while loop will exit once we get to the end of either the right or left array, but this means that whatever array we didn't
-    # get to the end of, then there will be more values left in it which we need to append to the end of result
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
-
-# search for a target using binary search
-def binary_search(arr, target):
-    # represents the pointer for the index of the start of the array
-    low = 0
-    # represents the pointer for the index of the end of the array
-    high = len(arr) - 1
-
-    # as long as the array has a start and end index, continue the loop
-    while low <= high:
-        # midpoint of the array
-        mid = (low + high) // 2
-
-        # if the midpoint is equal to the target, return the midpoint since this will be the index
-        if arr[mid] == target:
-            return mid
-        # if the midpoint is less than the target, change the low to the midpoint plus 1 since this will be
-        # the start index of the new array
-        elif arr[mid] < target:
-            low = mid + 1
-        # if the midpoint is greater than the target, change the high to the midpoint minus 1 since this will
-        # be the end index of the new array
-        else:
-            high = mid - 1
-    # if the value isn't found in the list return -1
-    return -1
-
-# Check if a string contains only unique characters
-
-def unique_letters(input_string):
-  # create a hash map for letters we have seen already
-  seen_dict = {}
-  # loop through each index and character
-  for i, letter in enumerate(input_string):
-    # if the letter is in the hash_map we return False
-    if letter in seen_dict:
-      return False
-    # if the letter isn't in the hash map we add it
-    else:
-      seen_dict[letter] = i
-  # if we get out of the for loop, we return True
-  return True
-
 # Leetcode 367. Valid Perfect Square
 
 class Solution:
@@ -428,7 +339,7 @@ class Solution:
             current = next_pair
         return dummy.next
 
-# Leetcode 86
+# Leetcode 86. Partition List
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -525,6 +436,7 @@ class Solution:
         return new_head
 
 # Leetcode 226: Invert Binary Tree
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -1045,8 +957,79 @@ class Solution:
         # this means s1==s2. If they are not the same it will return False since s1!=s2
         return s1_hash == s2_hash
 
-# dfs iteratively
+# sort an array using merge sort
+def merge_sort(arr):
+    # when the array has length 1, we return that number
+    if len(arr) <= 1:
+        return arr
+    # finds the midpoint of the array
+    mid = len(arr) // 2
+    # left half of the array divided on the midpoint
+    left_half = arr[:mid]
+    # right half of the array divided on the midpoint
+    right_half = arr[mid:]
+    # continues to divide the arrays until we get it down to an array with length 1, which will return the array
+    # this uses recursion and will continue to happen before moving to the next line
+    left_half = merge_sort(left_half)
+    # same as above, uses recursion to divide the right half of the array until it gets to an array with length 1
+    right_half = merge_sort(right_half)
+    # once the recursion stops, we will use the merge function to merge the two arrays with length 1 together, then
+    # every other array after that will again be merged using the merge function until we get back to the starting
+    # point before the recursion started, which will be two sorted array (left and right) which will be merged
+    return merge(left_half, right_half)
 
+def merge(left, right):
+    # empty result array to store the merge between left and right
+    result = []
+    # i is the index for left array
+    i = 0
+    # j is the index for right array
+    j = 0
+    # as long as the index for both left and right don't exceed their length, we will stay in the while loop
+    while i < len(left) and j < len(right):
+        # if the left array value at index i is less than or equal to the right array value at index j, we will append
+        # the left value in the result array since its smaller. We will then move the i counter up by 1 to move to the next value
+        # in the left array
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    # this adds the rest of the elements from the left or right array to the end of the result
+    # the while loop will exit once we get to the end of either the right or left array, but this means that whatever array we didn't
+    # get to the end of, then there will be more values left in it which we need to append to the end of result
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
+
+# search for a target using binary search
+def binary_search(arr, target):
+    # represents the pointer for the index of the start of the array
+    low = 0
+    # represents the pointer for the index of the end of the array
+    high = len(arr) - 1
+
+    # as long as the array has a start and end index, continue the loop
+    while low <= high:
+        # midpoint of the array
+        mid = (low + high) // 2
+
+        # if the midpoint is equal to the target, return the midpoint since this will be the index
+        if arr[mid] == target:
+            return mid
+        # if the midpoint is less than the target, change the low to the midpoint plus 1 since this will be
+        # the start index of the new array
+        elif arr[mid] < target:
+            low = mid + 1
+        # if the midpoint is greater than the target, change the high to the midpoint minus 1 since this will
+        # be the end index of the new array
+        else:
+            high = mid - 1
+    # if the value isn't found in the list return -1
+    return -1
+
+# dfs iteratively
 def dfs(self, root):
         # if we have no root, we return nothing
         if root is None:
@@ -1077,7 +1060,6 @@ def dfs(self, root):
         return dfs
 
 # Breadth First Search
-
 def bfs(current):
             # create a visited set
             visited = set()
@@ -1105,3 +1087,18 @@ def bfs(current):
             # return the visited set which will give the nodes
             # in breadth first search order
             return visited
+
+# Check if a string contains only unique characters
+def unique_letters(input_string):
+  # create a hash map for letters we have seen already
+  seen_dict = {}
+  # loop through each index and character
+  for i, letter in enumerate(input_string):
+    # if the letter is in the hash_map we return False
+    if letter in seen_dict:
+      return False
+    # if the letter isn't in the hash map we add it
+    else:
+      seen_dict[letter] = i
+  # if we get out of the for loop, we return True
+  return True
